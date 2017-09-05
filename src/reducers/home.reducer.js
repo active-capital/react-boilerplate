@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
-  heading: "This is boilerplate is packing heat"
+  heading: "This boilerplate is packing heat"
 });
 
 function homeReducer(state = initialState, action) {
