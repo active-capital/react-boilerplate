@@ -1,16 +1,25 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connectRouter, routerMiddleware } from 'connected-react-router/immutable'
+import createSagaMiddleware from 'redux-saga'
 import { createBrowserHistory } from 'history'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducer'
+import rootSaga from './saga'
 
+// get history object from the browser
 export const history = createBrowserHistory()
 
+// initialize enhancers
 const enhancers = []
 
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+
+// create middleware array
 const middleware = [
   routerMiddleware(history),
+  sagaMiddleware
 ]
 
 const composedEnhancers = compose(
@@ -26,6 +35,10 @@ const configureStore = () => {
       composedEnhancers,
     )
   )
+
+// run the root saga
+sagaMiddleware.run(rootSaga)
+
 
   // enable hot reloading of reducers
   if (process.env.NODE_ENV !== "production") {

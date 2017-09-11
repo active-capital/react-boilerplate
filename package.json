@@ -12,7 +12,8 @@
     "react-router-dom": "next",
     "react-router-redux": "next",
     "redux": "^3.7.2",
-    "redux-immutable": "^4.0.0"
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^0.15.6"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",

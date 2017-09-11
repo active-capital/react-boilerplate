@@ -8,3 +8,4 @@ A boilerplate built on top of Facebook's create-react-app
 1. React-Router
 1. ImmutableJS
 1. Sass
+1. Redux-Saga

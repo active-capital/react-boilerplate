@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { string } from 'prop-types';
 
 class HomeView extends Component {
+  componentDidMount() {
+    this.props.serverAddress()
+  }
+
   render() {
-    const { heading } = this.props;
+    const { heading, server } = this.props;
     return (
-      <h1>{heading}</h1>
+      <div className="home">
+        <h1>{heading}</h1>
+        <h3>{`The development server usually runs at ${server}`}</h3>
+      </div>
     )
   }
 }
